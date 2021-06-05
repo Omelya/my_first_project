@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Count;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class CountsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $counts = Count::get();
+        return view('home', compact('counts'));
     }
 
     /**
@@ -34,7 +36,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -54,21 +56,22 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Count $count)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Count $count
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Count $count)
     {
-        //
+        $count->update($request->only(['count']));
+        return  redirect()->action([CountsController::class, 'index']);
     }
 
     /**
