@@ -18,10 +18,6 @@ Route::redirect('/', 'counts');
 
 Route::resource('counts', CountsController::class);
 
-Route::get('search', [SearchesController::class, 'index']);
-
-Route::post('result', [SearchesController::class, 'res']);
-
 Route::get('/import-form', [SearchesController::class, 'importForm']);
 
 Route::post('/import', [SearchesController::class, 'import'])->name('search.import');
