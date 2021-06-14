@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountsController;
+use App\Http\Controllers\SearchesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +15,13 @@ use App\Http\Controllers\CountsController;
 */
 
 Route::redirect('/', 'counts');
+
 Route::resource('counts', CountsController::class);
+
+Route::get('search', [SearchesController::class, 'index']);
+
+Route::post('result', [SearchesController::class, 'res']);
+
+Route::get('/import-form', [SearchesController::class, 'importForm']);
+
+Route::post('/import', [SearchesController::class, 'import'])->name('search.import');
