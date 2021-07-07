@@ -88,13 +88,11 @@ class SearchesController extends Controller
         } else $garages = false;
 
 
-      return $ser = DB::table('property_data')
+      $ser = DB::table('property_data')
 
         ->when($name, function($query, $name) {
           return $query->where('name', 'LIKE', '%'.$name.'%');
         })
-
-        //->orwhereBetween('price', [$priceFrom, $priceTo])
 
         ->when($priceFrom, function ($query, $priceFrom) {
           return $query->where('price', '>=', $priceFrom);
@@ -121,5 +119,7 @@ class SearchesController extends Controller
         })
 
         ->get();
+
+        return view('search', compact('ser'));
     }
 }

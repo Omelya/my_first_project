@@ -14,10 +14,6 @@ use App\Http\Controllers\SearchesController;
 |
 */
 
-Route::redirect('/', 'counts');
-
-Route::resource('counts', CountsController::class);
-
 Route::get('/import-form', [SearchesController::class, 'importForm']);
 
 Route::post('/import', [SearchesController::class, 'import'])->name('file.import');
@@ -25,11 +21,3 @@ Route::post('/import', [SearchesController::class, 'import'])->name('file.import
 Route::get('/search_from', [SearchesController::class, 'search']);
 
 Route::post('/search', [SearchesController::class, 'result'])->name('search.result');
-
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
