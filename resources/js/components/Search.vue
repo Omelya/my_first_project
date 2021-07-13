@@ -14,7 +14,8 @@
   <input type="text" name="storeys" >
   <label for="garages">Кількість гаражів</label>
   <input type="text" name="garages" >
-  <button type="submit" name="button">Search</button>
+  <button type="submit" name="button" >Search</button>
+  <el-button type="submit" icon="el-icon-search">Search</el-button>
   </div>
 </template>
 

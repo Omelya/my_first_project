@@ -14,10 +14,10 @@ use App\Http\Controllers\SearchesController;
 |
 */
 
-Route::get('/import-form', [SearchesController::class, 'importForm']);
+//Route::get('/import-form', [SearchesController::class, 'importForm']);
 
-Route::post('/import', [SearchesController::class, 'import'])->name('file.import');
+//Route::post('/import', [SearchesController::class, 'import'])->name('file.import');
 
-Route::get('/search_from', [SearchesController::class, 'search']);
+//Route::get('/search_from', [SearchesController::class, 'search']);
 
-Route::post('/search', [SearchesController::class, 'result'])->name('search.result');
+//Route::post('/search', [SearchesController::class, 'result'])->name('search.result');
