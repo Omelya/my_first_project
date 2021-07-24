@@ -34,8 +34,8 @@ class SearchController extends Controller
           foreach ($name as $names => $name) {
             $name;
           }
-      } else $name = 0;
-
+      } else $name = false;
+      
       $priceFrom = $request->only(['priceFrom']);
       if(!empty($priceFrom['priceFrom'])){
         foreach ($priceFrom as $priceFroms => $priceFrom) {
@@ -77,9 +77,8 @@ class SearchController extends Controller
             $garages;
           }
         } else $garages = false;
-
-
-      $ser = DB::table('property_data')
+      
+        $searchRes = DB::table('property_data')
 
         ->when($name, function($query, $name) {
           return $query->where('name', 'LIKE', '%'.$name.'%');
@@ -111,6 +110,14 @@ class SearchController extends Controller
 
         ->get();
 
+        if($name == false && $priceTo == false && $priceFrom == false && $bedrooms == false && $bathrooms == false && $storeys == false && $garages == false) {
+          $ser = null;
+        } else $ser = $searchRes;
+
+        if($ser !== null){
+            $ser = json_decode(json_encode($searchRes), true);
+        }
+        
         return view('search', compact('ser'));
     }
 

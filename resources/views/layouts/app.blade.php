@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="/css/app.css">
 
     @yield('style')
 

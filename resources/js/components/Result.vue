@@ -1,44 +1,39 @@
 <template>
   <div>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Назва будинку
-          </th>
-          <th>
-            Ціна
-          </th>
-          <th>
-            Кількість спальних кімнат
-          </th>
-          <th>
-            Кількість ванних кімнат
-          </th>
-          <th>
-            Поверховість
-          </th>
-          <th>
-            Кількість гаражів
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="result in data">
-          <td>{{result.name}}</td>
-          <td>{{result.price}}</td>
-          <td>{{result.bedrooms}}</td>
-          <td>{{result.bathrooms}}</td>
-          <td>{{result.storeys}}</td>
-          <td>{{result.garages}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <el-table
+      :data="data"
+      style="width: 100%">
+      <el-table-column
+        prop="name"
+        label="Назва будинку"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="price"
+        label="Ціна"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="bedrooms"
+        label="Кількість спальних кімнат">
+      </el-table-column>
+      <el-table-column
+        prop="bathrooms"
+        label="Кількість ванних кімнат">
+      </el-table-column>
+      <el-table-column
+        prop="storeys"
+        label="Поверховість">
+      </el-table-column>
+      <el-table-column
+        prop="garages"
+        label="Кількість гаражів">
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
 <script>
-
   export default {
   props: ['data'],
       mounted() {

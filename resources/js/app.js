@@ -33,7 +33,7 @@ Vue.component('search', require('./components/Search.vue').default);
 
 Vue.component('result', require('./components/Result.vue').default);
 
-Vue.component('my-button', require('./components/MyButton').default);
+Vue.component('badresult', require('./components/BadResult').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -11,9 +11,17 @@
 @endsection
 
 @section('content')
-  <div id="app">
-    <result :data='@json($ser)'></result>
-  </div>
+
+  @if($ser == null)
+    <div id="app">
+      <badresult></badresult>
+    </div>
+  @else
+    <div id="app">
+      <result :data='@json($ser)'></result>
+    </div>
+  @endif
+
 @endsection
 
 @section('script')
