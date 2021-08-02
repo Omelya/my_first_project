@@ -21,19 +21,21 @@ window.Vue = require('vue').default;
 
 import Vue from 'vue';
 
+import VueRouter from 'vue-router';
+
 import ElementUI from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
 
+Vue.use(VueRouter);
+
 Vue.use(ElementUI);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import App from './components/App'
 
-Vue.component('search', require('./components/Search.vue').default);
+import Search from './components/Search'
 
-Vue.component('result', require('./components/Result.vue').default);
-
-Vue.component('badresult', require('./components/BadResult').default);
+import Result from './components/Result'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -41,6 +43,24 @@ Vue.component('badresult', require('./components/BadResult').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'search',
+            component: Search
+        },
+        {
+            path: '/result',
+            name: 'result',
+            component: Result
+        }
+    ]
+})
+
 const app = new Vue({
     el: '#app',
+    components: {App},
+    router
 });

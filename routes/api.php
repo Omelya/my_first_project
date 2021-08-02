@@ -15,4 +15,4 @@ use App\Http\Controllers\SearchController;
 |
 */
 
-Route::apiResource('search', SearchController::class);
+Route::apiResource('/', SearchController::class);

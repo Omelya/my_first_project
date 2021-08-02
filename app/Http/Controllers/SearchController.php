@@ -18,7 +18,7 @@ class SearchController extends Controller
      */
     public function index()
     {
-        return view('search_form');
+        return view('app');
     }
 
     /**
@@ -111,14 +111,14 @@ class SearchController extends Controller
         ->get();
 
         if($name == false && $priceTo == false && $priceFrom == false && $bedrooms == false && $bathrooms == false && $storeys == false && $garages == false) {
-          $ser = null;
+          $ser = 'За вашим запитом нічого не знайдено';
         } else $ser = $searchRes;
 
-        if($ser !== null){
+        if($ser !== 'За вашим запитом нічого не знайдено'){
             $ser = json_decode(json_encode($searchRes), true);
         }
         
-        return view('search', compact('ser'));
+        return $ser;
     }
 
     /**
